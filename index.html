@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel A.N.G.E.L.I.C.A</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="cabecalho-logo">🦊</div>
+    <h1 class="cabecalho-titulo">Painel A.N.G.E.L.I.C.A</h1>
+    <div class="cabecalho-espaco"></div>
+  </header>
+
+  <main class="conteudo">
+
+    <section class="seletor-uf">
+      <h2 class="seletor-titulo">Selecione uma UF</h2>
+
+      <button id="botao-uf" class="botao-uf" type="button">
+        <span id="texto-uf-selecionada" class="texto-uf">Escolha uma UF</span>
+        <svg class="seta" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+
+      <div id="painel-ufs" class="painel-ufs" hidden>
+        <p class="painel-titulo">Todas as Unidades Federativas</p>
+        <div id="lista-ufs" class="lista-ufs">
+          <p class="mensagem-lista">Carregando estados...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <p class="card-rotulo">Total de cidades encontradas:</p>
+        <p id="total-cidades" class="card-valor">0</p>
+      </div>
+      <div class="card">
+        <p class="card-rotulo">ID da UF:</p>
+        <p id="id-uf" class="card-valor">—</p>
+      </div>
+    </section>
+
+    <section class="card-tabela">
+      <div class="tabela-topo">
+        <h3 id="titulo-tabela" class="tabela-titulo">Municípios</h3>
+
+        <label class="campo-busca">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input id="campo-busca" type="search" placeholder="Buscar município..." aria-label="Buscar município" disabled>
+        </label>
+      </div>
+
+      <div class="tabela-rolagem">
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th class="coluna-codigo">Código IBGE</th>
+              <th>Município</th>
+              <th class="coluna-uf">UF</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+
+        <div id="estado-vazio" class="estado-vazio">
+          <div class="estado-vazio-icone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <p id="estado-vazio-titulo" class="estado-vazio-titulo">Nenhuma UF selecionada</p>
+          <p id="estado-vazio-texto" class="estado-vazio-texto">Abra o seletor acima e escolha um estado para listar os municípios.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
